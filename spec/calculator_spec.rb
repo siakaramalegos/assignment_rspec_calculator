@@ -38,8 +38,8 @@ describe Calculator do
         expect(calculator.add(1, -2)).to eq(-1)
       end
 
-      it 'should add two positive integers' do
-        expect(calculator.add(1, 2)).to eq(3)
+      it 'should add two positive floats' do
+        expect(calculator.add(1.3, 2.2)).to eq(3.5)
       end
 
       it 'should add a positive float and positive integer' do
@@ -66,8 +66,32 @@ describe Calculator do
 # If the stringify input is passed to a new calculator, the outputs of each of the computational functions above is turned into a string.
     describe '.subtract' do
 
-      it 'should subtract two numbers' do
+      it 'should subtract two positive integers' do
         expect(calculator.subtract(1,2)).to eq(-1)
+      end
+
+      it 'should subtract two negative integers' do
+        expect(calculator.subtract(-1, -2)).to eq(1)
+      end
+
+      it 'should subtract a positive and a negative integer' do
+        expect(calculator.subtract(1, -2)).to eq(3)
+      end
+
+      it 'should subtract two positive floats' do
+        expect(calculator.subtract(1.3, 2.2)).to eq(0.9)
+      end
+
+      it 'should subtract a positive float and positive integer' do
+        expect(calculator.subtract(1.0, 2)).to eq(-1.0)
+      end
+
+      it 'should subtract a positive float and negative integer' do
+        expect(calculator.subtract(1.32, -2)).to eq(3.32)
+      end
+
+      it 'should subtract two negative floats' do
+        expect(calculator.subtract(-13.6, -2.0)).to eq(-11.6)
       end
     end
 
