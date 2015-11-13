@@ -125,11 +125,6 @@ describe Calculator do
       end
     end
 
-# The sqrt method properly determines square roots for positive numbers, raises errors for negative inputs, returns integers for round roots or 2-digit decimals for non-round roots.
-# The memory= function stores an object in memory, overwriting any previous object in memory See the Recipes for hints on testing readers/writers.
-# The memory function returns the object in memory and clears memory when returned, and starts as nil.
-# If the stringify input is passed to a new calculator, the outputs of each of the computational functions above is turned into a string.
-
     describe '.pow' do
 
       it 'should return one number to the power of another' do
@@ -151,16 +146,24 @@ describe Calculator do
 
     describe '.sqrt' do
 
-      it 'should return the square root of a number' do
+      it 'should raise an error for a negative input' do
+        expect do
+          calculator.sqrt(-1)
+        end.to raise_error(ArgumentError)
+      end
+
+      it 'should return an integer of a round square root of a positive number' do
         expect(calculator.sqrt(9)).to eq(3)
       end
 
-      it 'should return a non-integer square root of a number' do
+      it 'should return a 2-decimal square root for a non-round root' do
         expect(calculator.sqrt(8)).to eq(2.83)
       end
     end
 
     describe '.memory' do
+# The memory= function stores an object in memory, overwriting any previous object in memory See the Recipes for hints on testing readers/writers.
+# The memory function returns the object in memory and clears memory when returned, and starts as nil.
 
       it 'should return the memory value when set' do
         expect(calculator.memory=(8)).to eq(8)
@@ -180,6 +183,7 @@ describe Calculator do
   end # context
 
   context 'stringified' do
+# If the stringify input is passed to a new calculator, the outputs of each of the computational functions above is turned into a string.
 
     let(:calculator){Calculator.new(true)}
 
