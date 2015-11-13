@@ -116,17 +116,15 @@ describe Calculator do
         end.to raise_error(ArgumentError)
       end
 
-      it 'should divide two numbers giving decimal places' do
+      it 'should divide two numbers giving decimal if a remainder exists' do
         expect(calculator.divide(2, 3)).to eq(2/3.0)
       end
 
-      it 'should divide two numbers with no remainders to give integer results' do
+      it 'should divide two numbers giving an integer if no remainder exists' do
         expect(calculator.divide(4, 2)).to eq(2)
       end
     end
 
-# The divide method properly divides numbers, raises an ArgumentError if the second argument is zero, returns an integer if there is no remainder and a float if there is.
-# The pow method properly raises numbers to their power, including negative and decimal powers
 # The sqrt method properly determines square roots for positive numbers, raises errors for negative inputs, returns integers for round roots or 2-digit decimals for non-round roots.
 # The memory= function stores an object in memory, overwriting any previous object in memory See the Recipes for hints on testing readers/writers.
 # The memory function returns the object in memory and clears memory when returned, and starts as nil.
@@ -138,8 +136,16 @@ describe Calculator do
         expect(calculator.pow(3, 3)).to eq(27)
       end
 
-      it 'should return one number to the power of the result of another calculation' do
+      it 'should return one number to a decimal power' do
         expect(calculator.pow(27, 1/3.0)).to eq(3.0)
+      end
+
+      it 'should raise a number to a negative power' do
+        expect(calculator.pow(3, -1)).to eq(1/3.0)
+      end
+
+      it 'should raise a number to the zeroth power' do
+        expect(calculator.pow(3, 0)).to eq(1.0)
       end
     end
 
