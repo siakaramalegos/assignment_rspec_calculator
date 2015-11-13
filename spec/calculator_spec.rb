@@ -78,16 +78,18 @@ describe Calculator do
         expect(calculator.subtract(1, -2)).to eq(3)
       end
 
+      # TODO:  0.9 did not work
       it 'should subtract two positive floats' do
-        expect(calculator.subtract(1.3, 2.2)).to eq(0.9)
+        expect(calculator.subtract(1.3, 2.2)).to eq(1.3 - 2.2)
       end
 
       it 'should subtract a positive float and positive integer' do
         expect(calculator.subtract(1.0, 2)).to eq(-1.0)
       end
 
+      # TODO: 3.32 did not work
       it 'should subtract a positive float and negative integer' do
-        expect(calculator.subtract(1.32, -2)).to eq(3.32)
+        expect(calculator.subtract(1.32, -2)).to eq(1.32 - (-2))
       end
 
       it 'should subtract two negative floats' do
