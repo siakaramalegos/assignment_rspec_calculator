@@ -56,12 +56,6 @@ describe Calculator do
       end
     end
 
-# The divide method properly divides numbers, raises an ArgumentError if the second argument is zero, returns an integer if there is no remainder and a float if there is.
-# The pow method properly raises numbers to their power, including negative and decimal powers
-# The sqrt method properly determines square roots for positive numbers, raises errors for negative inputs, returns integers for round roots or 2-digit decimals for non-round roots.
-# The memory= function stores an object in memory, overwriting any previous object in memory See the Recipes for hints on testing readers/writers.
-# The memory function returns the object in memory and clears memory when returned, and starts as nil.
-# If the stringify input is passed to a new calculator, the outputs of each of the computational functions above is turned into a string.
     describe '.subtract' do
 
       it 'should subtract two positive integers' do
@@ -116,6 +110,12 @@ describe Calculator do
 
     describe '.divide' do
 
+      it 'should raise argument error if second argument is zero' do
+        expect do
+          calculator.divide(2, 0)
+        end.to raise_error(ArgumentError)
+      end
+
       it 'should divide two numbers giving decimal places' do
         expect(calculator.divide(2, 3)).to eq(2/3.0)
       end
@@ -124,6 +124,13 @@ describe Calculator do
         expect(calculator.divide(4, 2)).to eq(2)
       end
     end
+
+# The divide method properly divides numbers, raises an ArgumentError if the second argument is zero, returns an integer if there is no remainder and a float if there is.
+# The pow method properly raises numbers to their power, including negative and decimal powers
+# The sqrt method properly determines square roots for positive numbers, raises errors for negative inputs, returns integers for round roots or 2-digit decimals for non-round roots.
+# The memory= function stores an object in memory, overwriting any previous object in memory See the Recipes for hints on testing readers/writers.
+# The memory function returns the object in memory and clears memory when returned, and starts as nil.
+# If the stringify input is passed to a new calculator, the outputs of each of the computational functions above is turned into a string.
 
     describe '.pow' do
 
