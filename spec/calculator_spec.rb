@@ -56,8 +56,6 @@ describe Calculator do
       end
     end
 
-# The subtract method properly subtracts numbers, whether positive, negative, integer or float.
-# The multiply method properly multiplies numbers
 # The divide method properly divides numbers, raises an ArgumentError if the second argument is zero, returns an integer if there is no remainder and a float if there is.
 # The pow method properly raises numbers to their power, including negative and decimal powers
 # The sqrt method properly determines square roots for positive numbers, raises errors for negative inputs, returns integers for round roots or 2-digit decimals for non-round roots.
@@ -99,8 +97,20 @@ describe Calculator do
 
     describe '.multiply' do
 
-      it 'should multiply two numbers' do
+      it 'should multiply two integers' do
         expect(calculator.multiply(2, 3)).to eq(6)
+      end
+
+      it 'should multiply two floats' do
+        expect(calculator.multiply(2.0, 3.1)).to eq(6.2)
+      end
+
+      it 'should multiply two negative floats' do
+        expect(calculator.multiply(-1.0, -2.0)).to eq(2.0)
+      end
+
+      it 'should multiply a positive float and negative integer' do
+        expect(calculator.multiply(3.2, -2)).to eq(-6.4)
       end
     end
 
