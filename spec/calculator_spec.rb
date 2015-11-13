@@ -162,8 +162,6 @@ describe Calculator do
     end
 
     describe '.memory' do
-# The memory= function stores an object in memory, overwriting any previous object in memory See the Recipes for hints on testing readers/writers.
-# The memory function returns the object in memory and clears memory when returned, and starts as nil.
 
       it 'should return the memory value when set' do
         expect(calculator.memory=(8)).to eq(8)
@@ -178,6 +176,12 @@ describe Calculator do
         calculator.memory=(8)
         calculator.memory
         expect(calculator.memory).to eq(nil)
+      end
+
+      it 'should overwrite an existing object in memory' do
+        calculator.memory=(8)
+        calculator.memory=(9)
+        expect(calculator.memory).to eq(9)
       end
     end
   end # context
