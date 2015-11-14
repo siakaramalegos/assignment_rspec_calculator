@@ -24,7 +24,7 @@ describe Calculator do
 
     end
 
-    describe '.add' do
+    describe '#add' do
 
       it 'should add two positive integers' do
         expect(calculator.add(1, 2)).to eq(3)
@@ -56,7 +56,7 @@ describe Calculator do
       end
     end
 
-    describe '.subtract' do
+    describe '#subtract' do
 
       it 'should subtract two positive integers' do
         expect(calculator.subtract(1,2)).to eq(-1)
@@ -89,7 +89,7 @@ describe Calculator do
       end
     end
 
-    describe '.multiply' do
+    describe '#multiply' do
 
       it 'should multiply two integers' do
         expect(calculator.multiply(2, 3)).to eq(6)
@@ -108,7 +108,7 @@ describe Calculator do
       end
     end
 
-    describe '.divide' do
+    describe '#divide' do
 
       it 'should raise argument error if second argument is zero' do
         expect do
@@ -125,7 +125,7 @@ describe Calculator do
       end
     end
 
-    describe '.pow' do
+    describe '#pow' do
 
       it 'should return one number to the power of another' do
         expect(calculator.pow(3, 3)).to eq(27)
@@ -144,7 +144,7 @@ describe Calculator do
       end
     end
 
-    describe '.sqrt' do
+    describe '#sqrt' do
 
       it 'should raise an error for a negative input' do
         expect do
@@ -161,7 +161,7 @@ describe Calculator do
       end
     end
 
-    describe '.memory' do
+    describe '#memory' do
 
       it 'should return the memory value when set' do
         expect(calculator.memory=(8)).to eq(8)
@@ -191,7 +191,7 @@ describe Calculator do
 
     let(:calculator){Calculator.new(true)}
 
-    describe '.add' do
+    describe '#add' do
 
       it 'should add two positive integers' do
         expect(calculator.add(1, 2)).to eq('3')
@@ -223,7 +223,7 @@ describe Calculator do
       end
     end
 
-    describe '.subtract' do
+    describe '#subtract' do
 
       it 'should subtract two positive integers' do
         expect(calculator.subtract(1,2)).to eq('-1')
@@ -256,7 +256,7 @@ describe Calculator do
       end
     end
 
-    describe '.multiply' do
+    describe '#multiply' do
 
       it 'should multiply two integers' do
         expect(calculator.multiply(2, 3)).to eq('6')
@@ -275,7 +275,7 @@ describe Calculator do
       end
     end
 
-    describe '.divide' do
+    describe '#divide' do
 
       it 'should raise argument error if second argument is zero' do
         expect do
@@ -292,7 +292,7 @@ describe Calculator do
       end
     end
 
-    describe '.pow' do
+    describe '#pow' do
 
       it 'should return one number to the power of another' do
         expect(calculator.pow(3, 3)).to eq('27.0')
@@ -311,7 +311,7 @@ describe Calculator do
       end
     end
 
-    describe '.sqrt' do
+    describe '#sqrt' do
 
       it 'should raise an error for a negative input' do
         expect do
@@ -328,7 +328,7 @@ describe Calculator do
       end
     end
 
-    describe '.memory' do
+    describe '#memory' do
 
       # it 'should return the memory value when set' do
       #   expect(calculator.memory=(8)).to eq('8')
