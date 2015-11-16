@@ -334,22 +334,22 @@ describe Calculator do
       #   expect(calculator.memory=(8)).to eq('8')
       # end
 
-      # it 'should return the memory value when recalled once' do
-      #   calculator.memory=(8)
-      #   expect(calculator.memory).to eq('8')
-      # end
-
-      it 'should return nil when memory recalled twice' do
+      it 'should return the memory value when recalled once' do
         calculator.memory=(8)
-        calculator.memory
-        expect(calculator.memory).to eq(nil)
+        expect(calculator.memory).to eq('8')
       end
 
-      # it 'should overwrite an existing object in memory' do
-      #   calculator.memory=(8)
-      #   calculator.memory=(9)
-      #   expect(calculator.memory).to eq('9')
-      # end
+      it 'should return blank string when memory recalled twice' do
+        calculator.memory=(8)
+        calculator.memory
+        expect(calculator.memory).to eq('')
+      end
+
+      it 'should overwrite an existing object in memory' do
+        calculator.memory=(8)
+        calculator.memory=(9)
+        expect(calculator.memory).to eq('9')
+      end
     end
   end # context
 
