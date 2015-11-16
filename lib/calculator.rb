@@ -29,7 +29,7 @@ class Calculator
   def memory
     mem = @memory
     @memory = nil
-    return mem
+    return output(mem)
   end
   def memory=(mem)
     @memory = mem
